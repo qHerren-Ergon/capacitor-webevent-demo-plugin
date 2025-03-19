@@ -24,7 +24,7 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-sendEvent(document.querySelector('#button'), document.querySelector('#tableEvent'))
+sendEvent(document.querySelector('#button'))
 
 webevent.addListener('sendEvent', (value) => {
     var now = new Date();
@@ -38,7 +38,7 @@ webevent.addListener('sendEvent', (value) => {
     createRow(document.querySelector('#tableEvent'), value.value, value.time, timeAfter);
 })
 
-webevent.addTimerListener('sendEventWithTimer', (value) => {
+webevent.addListener('sendEventWithTimer', (value) => {
     var now = new Date();
     var timeAfter = [
         now.toLocaleTimeString().split(" ")[0],
