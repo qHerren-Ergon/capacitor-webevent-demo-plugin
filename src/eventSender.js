@@ -1,39 +1,28 @@
 import {webevent} from "webevent-plugin/src/index.js";
 
-export function sendEvent(element, e1, e2) {
+export function sendEvent(element) {
 
 
-  const sendtEvent = () => {
+  const sentEvent = () => {
 
     var now = new Date();
     var timeBefore = [
-      now.getHours(),
-      ':',
-      now.getMinutes(),
-      ':',
-      now.getSeconds(),
+      now.toLocaleTimeString().split(" ")[0],
       '.',
       now.getMilliseconds()
     ].join('');
     console.log(timeBefore);
-    webevent.eventSender().then();
-
-    var e1NewRow = e1.tBodies[0].insertRow(-1);
+    webevent.eventSender(timeBefore).then();
 
 
     var now = new Date();
     var timeBefore = [
-      now.getHours(),
-      ':',
-      now.getMinutes(),
-      ':',
-      now.getSeconds(),
+      now.toLocaleTimeString().split(" ")[0],
       '.',
       now.getMilliseconds()
     ].join('');
     console.log(timeBefore);
-    webevent.eventSenderWithTimer().then();
-    addBeforeTime(element)
+    webevent.eventSenderWithTimer(timeBefore).then();
   }
-  element.addEventListener('click', () => sendtEvent())
+  element.addEventListener('click', () => sentEvent())
 }
