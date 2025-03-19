@@ -29,11 +29,7 @@ sendEvent(document.querySelector('#button'))
 webevent.addListener('sendEvent', (value) => {
     var now = new Date();
     var timeAfter = [
-        now.getHours(),
-        ':',
-        now.getMinutes(),
-        ':',
-        now.getSeconds(),
+        now.toLocaleTimeString().split(" ")[0],
         '.',
         now.getMilliseconds()
     ].join('');
